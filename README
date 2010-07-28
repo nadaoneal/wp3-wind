@@ -1,0 +1,13 @@
+This WP3 (WordPress 3) plugin should be installed in the mu-plugins folder. What's that you say? You don't have an mu-plugins folder? Just create one, in wp-content. 
+
+This plugin was designed to work with the WIND authentication system and is therefore unlikely to be of any direct use to anyone. However, if your instituion uses some sort of CAS-like authentication system, you might be able use this code as reference for writing your own plugin.
+
+Basically, WP authentication refers the user to WIND; WIND passes back to WP the user's login name and (maybe) some affiliations. WP provisions an account per successful login, and may grant the user additional privileges, based on their affiliations and your settings.
+
+Features -
+ * Adds "WIND Login Settings" and "Provision Users" to the Super Admin menu.
+ * Stores the login settings in the db, and can be toggled on and off
+ * Takes course affiliations from several sources - ldap, WIND, and a comma-delimited file to provision users with
+ * Takes user information from LDAP to provision accounts
+ * Allows you to set a list of users who should become Super Admins at the time they're provisioned - replicates the old WPMU "Site Admins" text field option. (This is useful if you make a lot of dev sites and want the developers to be able to log in with their own credentials all the time.)
+ * Allows you to provision a batch of users at once, and grant them access to a specific blog, before they've ever logged in.
