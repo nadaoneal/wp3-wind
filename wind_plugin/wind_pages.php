@@ -86,14 +86,25 @@ function wind_blogs_dropdown() {
 } // end wind_blogs_dropdown()
 
 function wind_roles_dropdown() {
+	global $wpdb;
+	$roles = get_option($wpdb->prefix . 'user_roles');
 	?>
 	<select name="wind_new_role" id="wind_new_role">
-		<!--  <option  value="administrator">Administrator</option> -->
+		<!--  <option  value="administrator">Administrator</option> 
 		<option value="editor">Editor</option>
 		<option selected='selected' value="author">Author</option>
 		<option value="contributor">Contributor</option>
-		<!--  <option  value="subscriber">Subscriber</option> -->
+		 <option  value="subscriber">Subscriber</option> -->
+<?
+
+ 	foreach ( $roles as $role => $caps ) {
+ 		print "<option value='$role'> $role </option>";
+ 	}
+
+?>		 
+		 
 	</select> 	
+	
 	<?
 } // end wind_roles_dropdown()
 
